@@ -16,4 +16,4 @@ public class Main {
 							new Persoon(2, "Willy", "Sommers", 2)));
 		}
 	}
-}ddd
+}
