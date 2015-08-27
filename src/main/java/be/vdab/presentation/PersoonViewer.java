@@ -1,19 +1,24 @@
 package be.vdab.presentation;
 
+import java.io.IOException;
 import java.util.List;
 
 import be.vdab.entities.Persoon;
+import be.vdab.services.PersoonService;
 
 // enkele imports ...
 public class PersoonViewer {
 	private final PersoonEigenschap[] eigenschappen;
+	private final PersoonService persoonService;
 
-	public PersoonViewer(PersoonEigenschap[] eigenschappen) {
+	public PersoonViewer(PersoonEigenschap[] eigenschappen,
+			PersoonService persoonService) {
 		this.eigenschappen = eigenschappen;
+		this.persoonService = persoonService;
 	}
 
-	public void afbeelden(List<Persoon> personen) {
-		for (Persoon persoon : personen) {
+	public void afbeelden() throws IOException {
+		for (Persoon persoon : persoonService.findAll()) {
 			for (PersoonEigenschap eigenschap : eigenschappen) {
 				toonEigenschap(persoon, eigenschap);
 				System.out.print(' ');

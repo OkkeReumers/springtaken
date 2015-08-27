@@ -1,19 +1,17 @@
 package be.vdab;
 
-import java.util.Arrays;
+import java.io.IOException;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import be.vdab.entities.Persoon;
 import be.vdab.presentation.PersoonViewer;
 
+// enkele imports ...
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"container.xml")) {
-			context.getBean(PersoonViewer.class).afbeelden(
-					Arrays.asList(new Persoon(1, "Eddy", "Wally", 1),
-							new Persoon(2, "Willy", "Sommers", 2)));
+				"dao.xml", "services.xml", "presentation.xml")) {
+			context.getBean(PersoonViewer.class).afbeelden();
 		}
 	}
 }
