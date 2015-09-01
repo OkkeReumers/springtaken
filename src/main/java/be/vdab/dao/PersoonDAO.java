@@ -8,4 +8,3 @@ import be.vdab.entities.Persoon;
 public interface PersoonDAO {
 	List<Persoon> findAll() throws IOException;
 }
-ccc
