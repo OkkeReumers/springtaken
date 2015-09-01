@@ -8,9 +8,13 @@ import java.util.Scanner;
 
 import be.vdab.entities.Persoon;
 
-public class PersoonDAOMeerdereRegels implements PersoonDAO {
+/*@Repository
+@Qualifier("MeerdereRegelsFormaat")*/
+class PersoonDAOMeerdereRegels implements PersoonDAO {
 	private final File bestand;
-	public PersoonDAOMeerdereRegels(File bestand) {
+	
+	/*@Autowired*/
+	PersoonDAOMeerdereRegels(/*@Value("${persoonDAOTXT}") */File bestand) {
 		this.bestand = bestand;
 	}
 	
