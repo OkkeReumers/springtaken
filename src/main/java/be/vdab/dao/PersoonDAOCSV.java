@@ -8,10 +8,13 @@ import java.util.Scanner;
 
 import be.vdab.entities.Persoon;
 
-public class PersoonDAOCSV implements PersoonDAO {
+/*@Repository
+@Qualifier("CSVFormaat")*/
+class PersoonDAOCSV implements PersoonDAO {
 	private final File bestand;
 
-	public PersoonDAOCSV(File bestand) {
+	/*@Autowired*/
+	PersoonDAOCSV(/*@Value("${persoonDAOCSV}") */File bestand) {
 		this.bestand = bestand;
 	}
 
